@@ -5,13 +5,13 @@ This is a project I have been working on with *Yutian Chen* and *Jiannan Yang* s
 
 ## Project Objectives
  -   Introduce large language models to the training on genetic data and utilize this model for some down-stream tasks.
--   Pre-training on the single-cell data.
+ -   Pre-training on the single-cell data.
     -   Self-supervised learning
     -   Large language model: BERT, Transformer
     -   Genetic data (TCGA and [COSMIC](https://cancer.sanger.ac.uk/cosmic/archive-download)…)
     -   Code: HuggingFace Transformers
-   - Pre-training on chemical structures (SMILE).
-   - **Down-stream task:** predict drug efficiency with pre-trained embeddings of cell lines and chemical structures, based on drug sensitivity data from [GDSC](https://www.cancerrxgene.org/).
+ - Pre-training on chemical structures (SMILE).
+- **Down-stream task:** predict drug efficiency with pre-trained embeddings of cell lines and chemical structures, based on drug sensitivity data from [GDSC](https://www.cancerrxgene.org/).
 
 ## Diagram
 
@@ -30,11 +30,11 @@ This is a project I have been working on with *Yutian Chen* and *Jiannan Yang* s
 
 ## References
 
-[SNP2Vec: Scalable Self-Supervised Pre-Training for Genome-Wide Association Study](https://arxiv.org/pdf/2204.06699.pdf)
-[ContIG: Self-supervised Multimodal Contrastive Learning for Medical Imaging with Genetics](https://openaccess.thecvf.com/content/CVPR2022/papers/Taleb_ContIG_Self-Supervised_Multimodal_Contrastive_Learning_for_Medical_Imaging_With_Genetics_CVPR_2022_paper.pdf)
-[Multi-modal Self-supervised Pre-training for Large-scale Genome Data](https://openreview.net/pdf?id=fdV-GZ4LPfn)
-[Self-supervised learning in medicine and healthcare](https://www.nature.com/articles/s41551-022-00914-1)
-[DeepViFi: detecting oncoviral infections in cancer genomes using transformers](https://dl.acm.org/doi/abs/10.1145/3535508.3545551)
+- [SNP2Vec: Scalable Self-Supervised Pre-Training for Genome-Wide Association Study](https://arxiv.org/pdf/2204.06699.pdf)
+- [ContIG: Self-supervised Multimodal Contrastive Learning for Medical Imaging with Genetics](https://openaccess.thecvf.com/content/CVPR2022/papers/Taleb_ContIG_Self-Supervised_Multimodal_Contrastive_Learning_for_Medical_Imaging_With_Genetics_CVPR_2022_paper.pdf)
+- [Multi-modal Self-supervised Pre-training for Large-scale Genome Data](https://openreview.net/pdf?id=fdV-GZ4LPfn)
+- [Self-supervised learning in medicine and healthcare](https://www.nature.com/articles/s41551-022-00914-1)
+- [DeepViFi: detecting oncoviral infections in cancer genomes using transformers](https://dl.acm.org/doi/abs/10.1145/3535508.3545551)
 
 # Shell questions
 
