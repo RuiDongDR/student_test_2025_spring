@@ -6,7 +6,7 @@ This is a project I have been working on with *Yutian Chen* and *Jiannan Yang* s
 ## Project Objectives
  -   Introduce large language models to the training on genetic data and utilize this model for some down-stream tasks.
  -   Pre-training on the single-cell data.
-    -   Self-supervised learning
+    --   Self-supervised learning
     -   Large language model: BERT, Transformer
     -   Genetic data (TCGA and [COSMIC](https://cancer.sanger.ac.uk/cosmic/archive-download)…)
     -   Code: HuggingFace Transformers
