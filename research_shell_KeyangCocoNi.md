@@ -26,7 +26,7 @@ This is a project I have been working on with *Yutian Chen* and *Jiannan Yang* s
 |KALS-1          |Shikonin    |0.109809     | 0.8448139  |  
 |BHT-101         |AZD7762     |0.705439     |0.87215304  |
 
-> Our result is far from satisfactory, so we are still working on it.
+> Our result is far from satisfactory, so we are **still working** on it.
 
 ## References
 
