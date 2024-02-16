@@ -1,4 +1,4 @@
-#Section 1
+# Section 1
 ## Abstract
 
 It is widely acknowledged that a low exchange rate of the Renminbi against the US dollar increases the volume and amount of China's exports to the US, while a rise in the exchange rate leads to a larger volume of imports. Conversely, this paper seeks to explore whether the volumes of imports and exports also have an impact on the exchange rate. Through the construction of three models, we find that fluctuations in Chinas import and export volumes to the US affect the fluctuations in the exchange rate between the Renminbi and the US dollar, with the impact of import volumes being more significant. Moreover, there exists a certain linear relationship among these three variables. The models predict that over the next two years, as export volumes fluctuate upwards and import volumes stabilize, the exchange rate will briefly increase before stabilizing. Although fluctuations in both import and export volumes contribute to the volatility of the exchange rate, there remains 21% of the variance that cannot be explained by these two factors. Therefore, more series can be inserted into the VAR model in the future for fitting and prediction, to provide a more accurate forecast of exchange rate fluctuations.
@@ -59,7 +59,7 @@ lines(i, col="blue")
 **The resulting time series plots are as follows:**
 ![The resulting time series plots are as follows:](1.png)
 
-#Section 2
+# Section 2
 ## Describe the difference between `cd`, `cd ..`, and `cd ~`.
 `cd` changes the working directory to specific directory(or to home directory if leave blank). `cd ..` changes the working directory to the parent directory of the current directory. `cd ~` changes the working directory to the home directory of the user.
 
