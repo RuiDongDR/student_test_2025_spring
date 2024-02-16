@@ -33,7 +33,7 @@ This is referred to as the model's differenced equation form. From the mutual tr
 
 ## 1. Data Source
 
-The data for this empirical analysis comes from the CEIC database, selecting the monthly average exchange rate of the Renminbi to the US dollar, the total monthly exports from China to the US, and the total monthly imports from the US to China for the period from January 2000 to May 2022. There are a total of 269 data points, with the import and export amounts denoted in millions of US dollars.
+*The data for this empirical analysis comes from the CEIC database*, selecting the monthly average exchange rate of the Renminbi to the US dollar, the total monthly exports from China to the US, and the total monthly imports from the US to China for the period from January 2000 to May 2022. There are a total of 269 data points, with the import and export amounts denoted in millions of US dollars.
 
 ## 2. Descriptive Statistics of the Original Data
 
@@ -55,4 +55,5 @@ plot(e, col="red")
 lines(i, col="blue")
 ```
 
-The resulting time series plots are as follows:
+**The resulting time series plots are as follows:**
+![The resulting time series plots are as follows:](1.png)
