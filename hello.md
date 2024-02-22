@@ -1,7 +1,3 @@
-# Student Details
+# Students
 
-Name: `Bhargav Kantheti`
-
-Email: `bk2899@columbia.edu`
-
-Github: [bharxhav](https://github.com/bharxhav)
+`Bhargav Kantheti` - gh.com/[bharxhav](https://github.com/bharxhav)
