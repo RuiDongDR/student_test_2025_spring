@@ -41,3 +41,59 @@ for variation. For each scenario, we simulate 200 datasets consisting of
 1000 observations each to replicate the range of observations often
 found in prospective epidemiological studies. ![Correlation Matrix for
 Simulated Exposures and Covariates](Correlation%20Matrix.png).
+
+## Shell Questions
+
+- Describe the difference between `cd`, `cd ..`, and `cd ~`.  
+  `cd` and `cd ~` will always put the user in their home directory. On
+  the other hand, `cd ..` will move the user up one directory. So, if
+  they are /usr/bin/tmp, `cd ..` moves them to /usr/bin, while
+  `cd ../..` moves them to /usr (i.e. up two levels). The user can use
+  this indirection to access subdirectories too.
+
+- What is the purpose of the `chmod` command?  
+  In Unix operating systems, the `chmod` command is used to change the
+  access mode of a file. The name is an abbreviation of change mode.
+  Which states that every file and directory has a set of permissions
+  that control the permissions like who can read, write or execute the
+  file. In this the permissions have three categories: read, write, and
+  execute simultaneously represented by `r`, `w` and `x`. These letters
+  combine together to form a specific permission for a group of users.
+
+- How would you display the value of the PATH environment variable?  
+  I will enter `echo $PATH` in terminal to display the value of PATH
+  environmental variable.
+
+- In the current folder, you have hundreds of files in `.csv`, `.log`,
+  `.out` format.  
+
+  - How to count the line numbers of each `.csv` file?  
+    Open new terminal at folder, and enter `cat filename.csv  | wc -l`
+    to get the line numbers.
+
+  - How to print the last line of each `.log` file?  
+    Open new terminal at folder, and enter `tail -n 1 filename.log` to
+    get the line numbers.
+
+  - How to print a list of `.out` files that contains `Error` somewhere
+    in the file, and also print the line that includes `Error`?
+
+- How would you print the second column of a space-separated file (for
+  example, `test_data.out`) using `awk`?  
+  Enter `$ awk '{ print $2 }' filename` to terminal to get the second
+  column.
+
+- Describe the difference between `ps`, `top`, `htop` commands.  
+  `ps` produces a snapshot of all running processes.  
+  `top` is used to discover resource-hungry processes. This Linux
+  command will sort the list by CPU usage, so the process which consumes
+  the most resources will be placed at the top. It’s also useful to
+  check if a specific process is running.  
+  Both the `htop` and `top` commands display the same information when
+  listing Linux processes, but the former offers user-friendly features
+  that are great for everyday process management. The `htop` command
+  allows you to scroll vertically and horizontally. As such, you can see
+  the complete list of Linux processes along with their full command
+  lines. What’s more, the command allows you to use a mouse to select
+  items, kill processes without inserting their PIDs, change the
+  priority of multiple processes easily, and so on.
