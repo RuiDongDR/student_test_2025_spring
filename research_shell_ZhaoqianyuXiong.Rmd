@@ -2,7 +2,7 @@
 title: "Research Shell - ZhaoqianyuXiong"
 author: "Zhaoqianyu Xiong"
 date: "2024-02-21"
-output: html_document
+output: github_document
 ---
 ## My Research Project
 
