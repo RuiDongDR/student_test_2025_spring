@@ -13,7 +13,7 @@ Therefore, this project aims to find a model to **diagnostically predict whether
 We use one dataset drawn from Kaggel which is originally from the National Institute of Diabetes and Digestive and Kidney. Our dataset includes **768 observations for 9 varibles**. The objective of this dataset is to predict diabetes diagnostically, based on the medical measurements in the data. This dataset contains eight independent medical predictors which might be associated with diabetes occurrence and **one dependent variable outcome**. The data source is female patients at least 21 years old of Pima Indian heritage.
 
 **Results**
-![Parameter Estimates](/Users/tristaaazjy/Documents/8105/jz3571_project.github.io/images/table_2.jpeg)
+![Parameter Estimates](table_2.jpeg)
 
 *addtional information* : link to website summary of the project [GitHub](https://tristaaazjy.github.io/jz3571_project.github.io/index.html)
 
