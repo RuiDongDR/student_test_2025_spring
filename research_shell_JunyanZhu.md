@@ -15,8 +15,23 @@ We use one dataset drawn from Kaggel which is originally from the National Insti
 **Results**
 ![Parameter Estimates](table_2.jpeg)
 
-*addtional information* : link to website summary of the project [GitHub](https://tristaaazjy.github.io/jz3571_project.github.io/index.html)
+*Addtional information* : link to website summary of the project [GitHub](https://tristaaazjy.github.io/jz3571_project.github.io/index.html)
 
 
+***Section 2***
 
-
+- Describe the difference between `cd`, `cd ..`, and `cd ~`.
+  `cd` changes the current working directory to the user's home directory if directory argument is not speccified. If a directory is specified, it changes the current working directory to the specified directory.
+   `cd ..` changes the current working directory to its parent directory, moving one directory level up in the directory hierarchy.
+   `cd ~` changes the current working directory to the user's home directory, regardless of the current directory.
+  
+- What is the purpose of the `chmod` command?
+  The purpose of `chmod` is to secure the file system by setting permissions about who can read, modify, or execute files.
+  
+- How would you display the value of the PATH environment variable?
+- In the current folder, you have hunderds of files in `.csv`, `.log`, `.out` format.
+    - How to count the line numbers of each `.csv` file?
+    - How to print the last line of each `.log` file?
+    - How to print a list of `.out` files that contains `Error` somewhere in the file, and also print the line that includes `Error`?
+- How would you print the second column of a space-separated file (for example, `test_data.out`) using `awk`?
+- Describe the difference between `ps`, `top`, `htop` commands.
