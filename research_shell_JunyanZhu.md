@@ -58,6 +58,6 @@ We use one dataset drawn from Kaggel which is originally from the National Insti
 
 - Describe the difference between `ps`, `top`, `htop` commands.  
   `ps` shows the process information at the time the command was executed and does not update.  
-  `top` offers a real-time, dynamic view of system processes with basic interactivity and sorting capabilities.
+  `top` offers a real-time, dynamic view of system processes with basic interactivity and sorting capabilities.  
   `htop`  enhances the top command with an improved user interface, additional features for process management, and better visualization of resource usage. 
 
