@@ -1,0 +1,261 @@
+---
+title: "Untitled"
+author: "Manye Dong"
+date: "2024-02-21"
+output: pdf_document
+---
+```{r}
+install.packages("susieR")
+install.packages("corrplot")
+```
+
+```{r}
+rm(list=ls())
+library(susieR)
+library(corrplot)
+data(N3finemapping)
+attach(N3finemapping)
+```
+
+```{r}
+ls()
+```
+
+```{r}
+names(N3finemapping)
+```
+
+```{r}
+y = Y[,1]
+b = true_coef[,1]
+```
+
+Q1
+```{r}
+# Effect sizes for the "causal" variants
+effect_sizes <- b[which(b != 0)]
+effect_sizes
+
+# Plot the true effects vector
+plot(effect_sizes, type = "b", pch = 16, col = "blue", xlab = "Variant", ylab = "Effect Size", main = "True Effects Vector")
+```
+
+Q2
+```{r}
+sumstats <- univariate_regression(X, y)
+```
+
+```{r}
+# Plot the true effects vector `b` against the estimated effect sizes `sumstats$betahat`
+plot(b, sumstats$betahat, pch = 16, col = "blue", xlab = "True Effect Sizes", ylab = "Estimated Effect Sizes", main = "Comparison of True vs Estimated Effect Sizes")
+
+# Add a diagonal line for reference
+abline(0, 1, col = "red", lty = 2)
+```
+
+Q3
+```{r}
+z_scores <- sumstats$betahat / sumstats$sebetahat
+log10p <- -log10(pchisq(z_scores^2,1,lower.tail=F))
+```
+
+```{r}
+# Count the number of variables with p-values smaller than 5x10^(-8)
+num_significant <- sum(log10p < -log10(5e-8))
+
+# Print the number of variables with significant p-values
+print(num_significant)
+```
+
+Variants with p-values smaller than 5x10^(-8) are considered highly significant, indicating strong evidence of association with the trait. These variants are likely to have a substantial effect on the trait and may be prioritized for further investigation or validation in subsequent analyses.
+
+Q4
+```{r}
+# Extract variables with significant p-values from the original genotype data
+significant_vars <- X[, log10p < -log10(5e-8)]
+
+# Calculate the correlation matrix for significant variables
+cor_matrix <- cor(significant_vars)
+
+# Draw a correlogram
+library(corrplot)
+corrplot(cor_matrix, method = "circle")
+
+# Print out the pair with highest positive correlation
+max_corr <- which(cor_matrix == max(cor_matrix[upper.tri(cor_matrix)], na.rm = TRUE), arr.ind = TRUE)
+row_index <- max_corr[1]
+col_index <- max_corr[2]
+print(paste("Pair with highest positive correlation:", row_index, "and", col_index))
+```
+
+A high positive correlation suggests that the two variants tend to change in the same direction: when one variant increases, the other also tends to increase. This may indicate that the two variants are in linkage disequilibrium or are jointly associated with the trait under investigation.
+
+
+Q5
+```{r}
+susie_plot(z_scores,y="z",b=b)
+```
+
+```{r}
+# Assuming `z_scores` contains the z-scores derived from association testing
+# and `b` contains the true effect variables provided to the `susie_plot` function
+
+# Find the indices of SNPs with p-values smaller than 5x10^(-8)
+significant_indices <- which(log10p < -log10(5e-8))
+
+# Identify the index of the second most significant SNP
+sorted_indices <- order(-log10p)
+second_most_significant_index <- sorted_indices[2]
+
+# Check if the second most significant SNP is one of the other two true effect variables
+is_second_most_significant_true_effect <- second_most_significant_index %in% which(b != 0)
+
+# Print the index of the second most significant SNP
+print(paste("Index of the second most significant SNP:", second_most_significant_index))
+
+# Print whether the second most significant SNP is one of the other two true effect variables
+print(paste("Is the second most significant SNP one of the other two true effect variables?", is_second_most_significant_true_effect))
+```
+
+If the second most significant SNP is not one of the true effect variables, it indicates that there may be additional genetic variants contributing to the trait's association that were not captured by the true effect variables. The relationship between the top and second most significant SNPs may suggest potential polygenic effects, where multiple genetic variants collectively influence the trait's phenotype.
+
+
+Q6
+```{r}
+lliks = sapply(1:ncol(X), function(i) logLik(lm(y~X[,i])))
+lliks = lliks - max(lliks) # To avoid taking exp on large numbers in the next line, thus improving numerical stability 
+probs = exp(lliks)/sum(exp(lliks))
+susie_plot(probs, y="PIP", b=b, ylab = "Prob. true effect (assuming one effect variable)")
+which(susieR:::in_CS(t(probs), coverage = 0.95) != 0)
+fitted <- susie(X, y, L = 10)
+print(fitted$sets)
+```
+
+```{r}
+# Assuming `probs` contains the probabilities computed for each variable being the true effect variable
+# and `b` contains the true effect variables
+
+# Set the desired coverage to 99%
+coverage <- 0.99
+
+# Define a function to check if a variable is in a single effect credible set
+in_CS <- function(probs_matrix, coverage) {
+  cum_probs <- apply(probs_matrix, 1, cumsum)
+  max_index <- max.col(cum_probs >= (1 - coverage) + 1e-10)
+  max_index[max_index * rowSums(probs_matrix != 0) == 0] <- 0
+  max_index
+}
+
+# Find the indices of variables in the credible sets with 99% coverage
+indices_99 <- which(in_CS(t(probs), coverage) != 0)
+
+# Print the credible sets
+print(indices_99)
+```
+
+Q7 + Q8
+```{r}
+susie_plot(fitted, y="PIP", b=b, add_legend=T)
+```
+
+```{r}
+# True effect variables before running SuSiE
+true_effects <- which(b != 0)
+
+# PIP for variable 403
+PIP_403 <- fitted$pip[403]
+
+# Average PIP of the third CS
+third_CS <- fitted$sets$cs$L3
+average_PIP_third_CS <- mean(fitted$pip[third_CS])
+
+# Compare log10 p-value and PIP for the CS containing variable 403
+i <- fitted$sets$cs$L3
+z3 <- cbind(i, log10p[i], fitted$pip[i])
+colnames(z3) <- c('position', '-log10 pvalue', 'PIP')
+z3 <- z3[order(z3[, 2], decreasing = TRUE),]
+
+# Print the results
+print(paste("True effect variables:", true_effects))
+print(paste("PIP for variable 403:", PIP_403))
+print(paste("Average PIP of the third CS:", average_PIP_third_CS))
+print("Comparison of log10 p-value and PIP for the CS containing variable 403:")
+print(z3)
+```
+
+Q9
+```{r}
+# Rerun SuSiE analysis with L=1
+fitted_L1 <- susie(X, y, L = 1)
+
+# Compare the results to the previous likelihood-based fine-mapping
+# Calculate log-likelihoods for each variable using univariate analysis
+lliks_univariate <- sapply(1:ncol(X), function(i) logLik(lm(y ~ X[, i])))
+
+# Compute probabilities for each variable being the true effect variable
+lliks_univariate <- lliks_univariate - max(lliks_univariate)
+probs_univariate <- exp(lliks_univariate) / sum(exp(lliks_univariate))
+
+# Plot the probabilities from univariate analysis
+susie_plot(probs_univariate, y = "PIP", b = b, ylab = "Prob. true effect (assuming one effect variable)", add_legend = TRUE)
+```
+
+Q10
+```{r}
+fitted2 = susie(X, y, L = 10, estimate_prior_variance = FALSE, scaled_prior_variance = 0.2)
+susie_plot(fitted2, y='PIP', b=b, add_legend=T)
+```
+
+```{r}
+fitted_small_prior <- susie(X, y, L = 10, estimate_prior_variance = FALSE, scaled_prior_variance = 0.001)
+susie_plot(fitted_small_prior, y='PIP', b=b, add_legend=TRUE)
+```
+
+Q11
+```{r}
+R <- cor(X)
+fitted_rss <- susie_rss(z_scores, R, L = 10)
+plot(fitted$pip, fitted_rss$pip, ylim=c(0,1))
+set.seed(1234)
+tmp = matrix(rnorm(500*1001), 500, 1001)
+eigenR = eigen(R)
+eigenR$values[eigenR$values < 1e-10] = 0
+X_ref = tmp %*% (eigenR$values * t(eigenR$vectors))
+R_ref = cor(X_ref)
+fitted_rss_ref <- susie_rss(z_scores, R_ref, L = 10)
+susie_plot(fitted_rss_ref, y="PIP", b=b)
+```
+
+```{r}
+n_ref = 500
+fitted_rss_ref_corrected <- susie_rss(z_scores, R_ref, z_ld_weight = 1/n_ref, L = 10)
+susie_plot(fitted_rss_ref_corrected, y="PIP", b=b)
+```
+
+Q13
+```{r}
+rm(list=ls())
+library(susieR)
+data(N2finemapping)
+```
+
+```{r}
+# Extract the phenotype of interest (y) and the true effect coefficients (b)
+y <- N2finemapping$Y[, 1]
+b <- N2finemapping$true_coef[, 1]
+
+# Compute the correlation matrix R from the genotype matrix X
+R <- cor(N2finemapping$X)
+
+# Compute the Z-scores and log10 p-values
+sumstats <- univariate_regression(N2finemapping$X, y)
+z_scores <- sumstats$betahat / sumstats$sebetahat
+log10p <- -log10(pchisq(z_scores^2, 1, lower.tail = FALSE))
+
+# Run susie_rss with the Z-scores and correlation matrix (R)
+fitted_rss <- susie_rss(z_scores, R, L = 10)
+
+# Visualize the results
+susie_plot(fitted_rss, y = "PIP", b = b)
+```
+
