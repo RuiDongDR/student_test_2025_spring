@@ -76,7 +76,9 @@ Simulated Exposures and Covariates](Correlation%20Matrix.png).
     get the line numbers.
 
   - How to print a list of `.out` files that contains `Error` somewhere
-    in the file, and also print the line that includes `Error`?
+    in the file, and also print the line that includes `Error`?  
+    Open new terminal at folder, and enter `grep -i "Error" *.out` to
+    get the line numbers.
 
 - How would you print the second column of a space-separated file (for
   example, `test_data.out`) using `awk`?  

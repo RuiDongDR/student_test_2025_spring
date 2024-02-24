@@ -34,8 +34,8 @@ We consider two scenarios: (1) metals have a linear effect on the outcome, while
     -   How to print the last line of each `.log` file?\
         Open new terminal at folder, and enter `tail -n 1 filename.log` to get the line numbers.
 
-    -   How to print a list of `.out` files that contains `Error` somewhere in the file, and also print the line that includes `Error`?
-        
+    -   How to print a list of `.out` files that contains `Error` somewhere in the file, and also print the line that includes `Error`? \
+        Open new terminal at folder, and enter `grep -i "Error" *.out` to get the line numbers.
 
 -   How would you print the second column of a space-separated file (for example, `test_data.out`) using `awk`? \
      Enter `$ awk '{ print $2 }' filename` to terminal to get the second column.
