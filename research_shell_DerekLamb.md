@@ -8,7 +8,20 @@ Opioid tablet ADFs are designed to prevent unintended routes of administration. 
 
 ## Results
 
-A dose-dependent decrease in hematocrit and an increase in plasma hemoglobin concentration was observed, consistent with intravascular hemolysis. Gross morphology of transverse sectioned kidneys suggested hemoglobinuric kidney injury localized to the renal cortex. Perls iron staining with *diaminobenzidine* (DAB) intensification revealed iron deposition in proximal and distal tubules.
+A dose-dependent decrease in hematocrit and an increase in plasma hemoglobin concentration was observed, consistent with intravascular hemolysis (Table 1). 
+
+### Table 1. Time-dependent hemolysis in PEO-dosed guinea pigs
+|Timepoint|7MDa|1MDa|Vehicle|
+|---------|----|----|-------|
+|Baseline |44.0|34.3|36.1   |
+|Day 1    |36.0|37.4|37.8   |
+|Day 3    |26.5|34.0|34.9   |
+|Day 6    |21.0|38.7|34.4   |
+|Day 9    |30.1|28.8|31.7   |
+|Day 12   |21.5|31.3|35.5   |
+|Day 15   |22.2|37.0|42.4   |
+
+Gross morphology of transverse sectioned kidneys suggested hemoglobinuric kidney injury localized to the renal cortex. Perls iron staining with *diaminobenzidine* (DAB) intensification revealed iron deposition in proximal and distal tubules.
 
 ![](intravascular_hemolysis.png)
 
