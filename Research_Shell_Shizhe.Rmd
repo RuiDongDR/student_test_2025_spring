@@ -2,7 +2,7 @@
 title: "research_shell_ShizheZhang"
 author: "Shizhe Zhang"
 date: "2024-09-27"
-output: html_document
+output: github_document
 ---
 
 # Project Description
