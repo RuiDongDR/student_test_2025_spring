@@ -66,3 +66,24 @@ kable(anova_results, col.names = c("Source", "DF", "Sum Sq", "Mean Sq", "F value
 
 ### For more information and the whole article
 You can find via [Effect of drug injection and stimulated learning on trisomic mice expressions of APP and SOD1](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12611/126115G/Effect-of-drug-injection-and-stimulated-learning-on-trisomic-mice/10.1117/12.2669963.full).
+
+
+
+# Answer Questions 
+
+1. `list.files(path = ".", all.files = TRUE)` or `ls -a` in Terminal
+
+2. `length(readLines("data.txt"))` or `wc -l data.txt` in Terminal
+
+3. `grep -i "error" *.log`
+
+4. `chmod +x script.sh`
+
+5. `tail -n 20 output.log` in terminal or `tail(filename, 20)` in R
+
+6. `cat file1.txt file2.txt > combined.txt` in terminal or read two files using R then combine them as combined.txt
+
+7. `grep "Completed" status.txt` in terminal or `print(grep("Completed", status, value = TRUE))` in R ("status" is the name reading `status.txt`)
+
+8. `sort unsorted.txt > sorted.txt` 
+
