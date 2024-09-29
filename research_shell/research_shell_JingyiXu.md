@@ -27,7 +27,7 @@ The classification of LC/MS spectra is base on the following steps (_for both po
 5. Fit the testing set with the trained model to evaluate the model.
 
 A overview of the workflow is presented below:
-![Workflow](https://file%2B.vscode-resource.vscode-cdn.net/Users/xujingyi/Documents/Columbia/Leal%20lab/workflow%20of%20image%20prediction.png?version%3D1727195484439)
+![Workflow](workflow_of_image_prediction.png)
 
 ## Result Analysis
 
