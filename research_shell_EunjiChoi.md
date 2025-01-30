@@ -1,4 +1,4 @@
-# **E.Choi **
+# **E.Choi**
 
 ## **The Impact of Employment Status on Depression Among Older Adults**
 
