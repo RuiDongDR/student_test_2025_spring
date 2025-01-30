@@ -33,3 +33,6 @@ Among those who reported having depression, only 7% were employed, while 92.35% 
 
 ### **Conclusion**
 A potential association between employment status and the well-being of older adults is suggested. However, limitations prevent establishing causality. Further research with a more robust and representative sample is needed for a clearer understanding.
+
+## Notebook/shell_questions
+
