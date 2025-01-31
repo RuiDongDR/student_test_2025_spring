@@ -53,6 +53,7 @@ Pathway enrichment analysis revealed:
 # **4. Discussion**  
 
 Our study demonstrated the functional heterogeneity of *T cells* in gastric cancer metastasis and these insights contribute to a deeper understanding of *T-cell* dynamics in GC and highlight potential targets for future immunotherapy research.
+
 ---
 
 # Section 2
