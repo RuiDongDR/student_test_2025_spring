@@ -2,7 +2,7 @@
 
 ## Abstract
 
-In this paper, I will use the Contraception dataset from the R package to study the factors influencing women’s use of contraceptive methods. These data, collected from the 1988 Bangladesh Fertility Survey[1], provide information on contraceptive use among women in urban and rural areas. I will employ both the GLMM model and the marginal model to investigate this question and compare their performances. Finally, whether in terms of goodness of fit or predictive ability, the GLMM outperforms the marginal model in this question. Briefly, holding other factors constant, older women are more likely to use contraception, younger women are less likely, women with more children are more likely to use contraception and women living urban are more likely to use contraception.
+In this paper, I will use the Contraception dataset from the R package to study the factors influencing women's use of contraceptive methods. These data, collected from the 1988 Bangladesh Fertility Survey[1], provide information on contraceptive use among women in urban and rural areas. I will employ both the **GLMM model** and the **marginal model** to investigate this question and compare their performances. Finally, whether in terms of goodness of fit or predictive ability, *the GLMM outperforms the marginal model in this question*. Briefly, holding other factors constant, older women are more likely to use contraception, younger women are less likely, women with more children are more likely to use contraception and women living urban are more likely to use contraception.
 
 ## GEE with marginal model
 
